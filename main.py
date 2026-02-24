@@ -76,7 +76,7 @@ def _record_bot_regular_usage(chars: int) -> None:
 # ---------------------------------------------------------------------------------
 # Persistent trigger settings (message-based triggers: per-channel or server-wide)
 # ---------------------------------------------------------------------------------
-TRIGGER_NAMES = ("dad", "sus", "gyros", "eat_shit", "shut_up")
+TRIGGER_NAMES = ("dad", "sus", "gyros", "eat_shit", "drink_piss", "shut_up")
 SHUT_UP_USER_ID = 129801271870881793
 TRIGGER_SETTINGS_FILE = Path(__file__).resolve().parent / "trigger_settings.json"
 
@@ -661,6 +661,7 @@ trigger_choices = {
     "Sus / wordlist (video reply)": "sus",
     "Gyros (imo/imho/opinion gif)": "gyros",
     "Eat shit (peepoChocolate)": "eat_shit",
+    "Drink piss (peepoLemonade)": "drink_piss",
     "Shut up (20% reply to specific user)": "shut_up",
 }
 scope_choices = {"This channel": "this_channel", "Server-wide": "server_wide"}
@@ -1150,6 +1151,10 @@ async def on_message(message):
     # Eat shit
     if is_trigger_enabled(channel_id, guild_id, "eat_shit") and 'eat shit' in message.content.lower():
         await message.channel.send('<:peepoChocolate:1250442571701026867>')
+
+    # Drink piss
+    if is_trigger_enabled(channel_id, guild_id, "drink_piss") and 'drink piss' in message.content.lower():
+        await message.channel.send('<a:peepoLemonade:1475840152503980155>')
 
     # Shut up: 20% chance to reply "shut up" when specific user sends a message
     if message.author.id == SHUT_UP_USER_ID and is_trigger_enabled(channel_id, guild_id, "shut_up") and random.random() < 0.20:
