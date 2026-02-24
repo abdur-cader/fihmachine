@@ -1,0 +1,28 @@
+{
+  "schedules": [
+    {
+      "user_id": 789177826389524481,
+      "guild_id": 1417145567334891653,
+      "channel_id": 1458126755096170540,
+      "duration_minutes": 1,
+      "hour": 14,
+      "minute": 33,
+      "gmt_offset": 4,
+      "last_apply_date": "2026-02-24",
+      "last_timeout_end_at": "2026-02-24T10:34:00+00:00",
+      "last_timeout_end_notified": true
+    },
+    {
+      "user_id": 725180869433753610,
+      "guild_id": 1417145567334891653,
+      "channel_id": 1458126755096170540,
+      "duration_minutes": 120,
+      "hour": 16,
+      "minute": 0,
+      "gmt_offset": 7,
+      "last_apply_date": "2026-02-24",
+      "last_timeout_end_at": "2026-02-24T11:00:00+00:00",
+      "last_timeout_end_notified": true
+    }
+  ]
+}

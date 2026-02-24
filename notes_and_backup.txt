@@ -1,0 +1,14 @@
+# @bot.slash_command(name="ai", description="Enter a prompt and have an AI-Generated response.")
+# async def ai(interaction: Interaction, prompt:str):
+#     if prompt == "": pass
+#     ai_response = model.generate_content(prompt)
+#     if len(ai_response.text) <= 2000:
+#         pt1 = ""
+#         pt2 = ""
+#         await interaction.response.send_message(ai_response.text)
+#     else:
+#         pt1 = ai_response.text[:2000]
+#         pt2 = ai_response.text[2000:]
+#         await interaction.response.send_message(pt1)
+#         await interaction.response.send_message(pt2)
+    
