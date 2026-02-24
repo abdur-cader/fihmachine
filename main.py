@@ -593,7 +593,10 @@ async def snipe(interaction: Interaction):
         description=content or "*[no content]*",
         color=nextcord.Color.from_rgb(43, 45, 49),
     )
-    embed.set_author(name=str(author), icon_url=getattr(author.display_avatar, "url", nextcord.Embed.Empty))
+    # Use the author's avatar URL if available; otherwise omit it.
+    avatar_url = getattr(getattr(author, "display_avatar", None), "url", None)
+    if avatar_url:
+        embed.set_author(name=str(author), icon_url=avatar_url)
     if isinstance(created_at, datetime):
         embed.add_field(
             name="Sent at",
