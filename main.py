@@ -1169,6 +1169,6 @@ async def on_message_delete(message: nextcord.Message):
         "deleted_at": datetime.now(timezone.utc),
     }
 
-TOKEN = os.getenv("PANKOMACHINE_TOKEN")
+TOKEN = os.getenv("BOT_TOKEN")
 print("Loaded token:", repr(TOKEN))
 bot.run(TOKEN)
