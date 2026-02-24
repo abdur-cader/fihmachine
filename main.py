@@ -1001,13 +1001,22 @@ async def timeout_scheduler_task():
         announce_ch = guild.get_channel(s.get("channel_id")) if s.get("channel_id") else guild.system_channel
         if announce_ch:
             # Announce the actual remaining duration that is being applied.
-            remaining_minutes = int(remaining_duration.total_seconds() // 60)
+            total_seconds = int(remaining_duration.total_seconds())
+            remaining_minutes = total_seconds // 60
+            remaining_seconds = total_seconds % 60
+
             if remaining_minutes >= 60 and remaining_minutes % 60 == 0:
                 dur_str = f"{remaining_minutes // 60}h"
             elif remaining_minutes >= 60:
-                dur_str = f"{remaining_minutes // 60}h {remaining_minutes % 60}min"
-            else:
+                hours = remaining_minutes // 60
+                mins = remaining_minutes % 60
+                dur_str = f"{hours}h {mins}min"
+            elif remaining_minutes > 0:
                 dur_str = f"{remaining_minutes}min"
+            else:
+                # Less than a minute remaining: show seconds.
+                dur_str = f"{remaining_seconds}s"
+
             try:
                 await announce_ch.send(f"{member.mention} has been timed out for **{dur_str}**.")
             except Exception:
